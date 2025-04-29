@@ -4,7 +4,10 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    # Commented out the instantiation of the user object
+    # @user = User.new(user_params)
+    # Add your code for later use here
+
     if @user.save
       redirect_to new_user_path, notice: "User created successfully!"
     else
