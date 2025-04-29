@@ -1,9 +1,9 @@
 <!-- app/views/users/new.html.erb -->
 <h1>Sign Up</h1>
 
-<form action="/users" method="post" accept-charset="UTF-8" data-turbo=false>
-  <%= csrf_meta_tags %> <!-- important for security! -->
-
+<form action="/users" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"
+>
   <label for="user_username">Username:</label>
   <input type="text" id="user_username" name="user[username]"><br><br>
 
