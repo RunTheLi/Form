@@ -15,19 +15,21 @@
 
 <%= form_with(model: @user, local: true) do |form| %>
   <div>
-    <%= form.label :username, "Your user name here" %><br>
-    <%= form.text_field :username, id: "user_username" %>
+    <%= form.label :username, "Enter your username" %><br>
+    <%= form.text_field :username, id: "user_username", placeholder: "Your username" %>
   </div><br>
 
   <div>
     <%= form.label :email, "Your email address" %><br>
     <%= form.email_field :email, id: "user_email", placeholder: "example@example.com" %>
-  </div>
-
-  <div>
-    <%= form.label :password, "Create a password" %><br>
-    <%= form.password_field :password, id: "user_password", placeholder: "Minimum 6 characters" %>
   </div><br>
+
+  <% if @user.password.present? %>
+    <div>
+      <%= form.label :password, "Change your password" %><br>
+      <%= form.password_field :password, id: "user_password", placeholder: "Minimum 6 characters" %>
+    </div><br>
+  <% end %>
 
   <%= form.submit "Update" %>
 <% end %>
