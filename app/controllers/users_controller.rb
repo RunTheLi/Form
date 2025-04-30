@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def create
     # Commented out the instantiation of the user object
-    # @user = User.new(user_params)
+    @user = User.new(user_params)
     # Add your code for later use here
 
     if @user.save
